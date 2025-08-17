@@ -23,8 +23,8 @@ const TaskList: React.FC<TaskListProps> = ({
 	isCompleted = false,
 	showAddButton = false,
 	emptyStateIcon = "🎉",
-	emptyStateTitle = "No completed tasks yet",
-	emptyStateDescription = "Complete tasks to see them here",
+	emptyStateTitle = "尚无已完成任务",
+	emptyStateDescription = "完成任务后会在这里显示",
 }) => {
 	return (
 		<div>
@@ -41,7 +41,7 @@ const TaskList: React.FC<TaskListProps> = ({
 				{showAddButton && (
 					<button className="w-full hover:bg-active-hover rounded-l p-6 flex items-center justify-center gap-3 transition-colors border-2 border-dashed border-hover">
 						<Plus className="w-6 h-6 text-muted" />
-						<span className="text-muted font-medium">Add new task</span>
+						<span className="text-muted font-medium">添加新任务</span>
 					</button>
 				)}
 				{tasks.length === 0 && !showAddButton && (

@@ -1,9 +1,9 @@
 {
 	"id": "zenboard",
-	"name": "ZenBoard",
+	"name": "禅定面板",
 	"version": "1.0.0",
 	"minAppVersion": "1.6.5",
-	"description": "A simple habit tracker to help you build and maintain daily routines.",
+	"description": "一个简单的习惯跟踪器，帮助您建立和保持日常习惯。",
 	"author": "Shad Abdullah",
 	"authorUrl": "https://github.com/shadabdullah/zenboard",
 	"isDesktopOnly": true

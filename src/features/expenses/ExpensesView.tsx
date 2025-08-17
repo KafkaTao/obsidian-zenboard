@@ -14,11 +14,11 @@ const ExpensesView = () => {
 				<div className="mb-4 p-4 bg-primary rounded-full shadow-sm border-default">
 					<DollarSign className="w-12 h-12 text-green-600" />
 				</div>
-				<h3 className="text-xl font-bold text-default mb-2">Expense Manager</h3>
-				<p className="text-muted mb-3">Track spending, manage your budget</p>
+				<h3 className="text-xl font-bold text-default mb-2">开支管理</h3>
+				<p className="text-muted mb-3">跟踪支出，管理您的预算</p>
 				<div className="flex items-center justify-center gap-2 text-sm text-muted font-medium">
 					<Clock className="w-4 h-4" />
-					<span>Coming Soon</span>
+					<span>即将推出</span>
 				</div>
 			</div>
 		</div>

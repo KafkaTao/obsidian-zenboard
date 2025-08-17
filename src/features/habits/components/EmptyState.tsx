@@ -11,26 +11,26 @@ const EmptyState = ({ type, onActionClick }: EmptyStateProps) => {
 	const config = {
 		active: {
 			icon: <Circle className="w-12 h-12 text-blue-400" />,
-			title: "No habits for today. See you tomorrow!",
-			description: "Add habits to start tracking your progress.",
+			title: "今天没有习惯。明天见！",
+			description: "添加习惯以开始跟踪您的进度。",
 			color: "blue",
 		},
 		completed: {
 			icon: <CheckCircle className="w-12 h-12 text-green-500" />,
-			title: "Nothing completed yet",
-			description: "Complete tasks to see them here",
+			title: "尚未完成任何内容",
+			description: "完成任务后会在这里显示",
 			color: "green",
 		},
 		all: {
 			icon: <Grid className="w-12 h-12 text-blue-400" />,
-			title: "No habits yet",
-			description: "Start building your routine by adding your first habit",
+			title: "还没有习惯",
+			description: "通过添加您的第一个习惯来开始建立您的日常习惯",
 			color: "blue",
 		},
 		stats: {
 			icon: <BarChart className="w-12 h-12 text-blue-400" />,
-			title: "No Stats Available",
-			description: "Add habits and make some progress to see here",
+			title: "无可用统计信息",
+			description: "添加习惯并取得一些进展后会在这里显示",
 			color: "blue",
 		},
 	};
@@ -81,7 +81,7 @@ const EmptyState = ({ type, onActionClick }: EmptyStateProps) => {
 						)}
 					>
 						<Plus className="w-4 h-4" />
-						Add First Habit
+						添加第一个习惯
 					</motion.button>
 				)}
 			</motion.div>

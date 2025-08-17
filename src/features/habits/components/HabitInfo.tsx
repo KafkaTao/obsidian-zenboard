@@ -18,7 +18,7 @@ export function HabitInfoCard({ task }: HabitInfoCardProps) {
 		if (task.trackingType === "amount") {
 			stats.push({
 				icon: <Target className="w-3.5 h-3.5" />,
-				value: `${task.targetCount || 0} ${task.counterValue || "times"}`,
+				value: `${task.targetCount || 0} ${task.counterValue || "次"}`,
 			});
 		}
 
@@ -31,16 +31,16 @@ export function HabitInfoCard({ task }: HabitInfoCardProps) {
 
 		const getRepeatLabel = (task: StoredHabit): string => {
 			if (task.selectedDays.length > 0) {
-				return `${task.selectedDays.length}x/week`;
+				return `每周${task.selectedDays.length}次`;
 			}
 
 			const interval = task.repeatInterval ?? 1;
 
 			if (task.repeatability === "every_few_days") {
-				return `Every ${interval}d`;
+				return `每${interval}天`;
 			}
 
-			return `Every ${interval}/mo`;
+			return `每${interval}个月`;
 		};
 		stats.push({
 			icon: <Calendar className="w-3.5 h-3.5" />,
@@ -85,14 +85,14 @@ export function HabitInfoCard({ task }: HabitInfoCardProps) {
 							{task.name}
 						</span>
 						<span className="text-[10px] text-muted font-medium">
-							{task.trackingType} habit
+							{task.trackingType} 习惯
 						</span>
 					</div>
 				</div>
 				<button
 					onClick={handleDeleteClick}
 					className="p-1 text-muted hover:text-red-500 transition"
-					title="Delete habit"
+					title="删除习惯"
 				>
 					<Trash2 className="w-4 h-4" />
 				</button>
@@ -138,11 +138,11 @@ export function HabitInfoCard({ task }: HabitInfoCardProps) {
 			<div className="flex items-center justify-between text-[10px] text-muted border-t border-hover pt-2">
 				<div className="flex items-center gap-1">
 					<Calendar className="w-3.5 h-3.5" />
-					{task.startDate || "Not set"}
+					{task.startDate || "未设置"}
 				</div>
 				<div className="flex items-center gap-1">
 					<CheckCircle className="w-3.5 h-3.5" />
-					{task.endDate || "Ongoing"}
+					{task.endDate || "进行中"}
 				</div>
 			</div>
 
@@ -156,7 +156,7 @@ export function HabitInfoCard({ task }: HabitInfoCardProps) {
 									<Trash2 className="w-4 h-4 text-white" />
 								</div>
 								<h3 className="text-sm font-bold text-default">
-									Delete Habit
+									删除习惯
 								</h3>
 							</div>
 							<button
@@ -167,24 +167,24 @@ export function HabitInfoCard({ task }: HabitInfoCardProps) {
 							</button>
 						</div>
 						<div className="p-4 text-sm text-muted">
-							Are you sure you want to delete{" "}
+							您确定要删除{" "}
 							<span className="font-semibold text-default">
 								{task.name}
 							</span>
-							? This action cannot be undone.
+							吗？此操作无法撤销。
 						</div>
 						<div className="p-4 pt-2 flex gap-2">
 							<button
 								onClick={handleCancelDelete}
 								className="flex-1 px-3 py-2 text-xs font-bold text-muted bg-secondary hover:bg-hover rounded-xl transition"
 							>
-								Cancel
+								取消
 							</button>
 							<button
 								onClick={handleConfirmDelete}
 								className="flex-1 px-3 py-2 text-xs font-bold text-white bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 rounded-xl transition"
 							>
-								Delete
+								删除
 							</button>
 						</div>
 					</div>
