@@ -24,7 +24,7 @@ const DatePicker: React.FC<DatePickerProps> = ({
 
 	// Date formatting utilities
 	const formatDisplayDate = (date: Date) =>
-		new Intl.DateTimeFormat("en-US", {
+		new Intl.DateTimeFormat("zh-CN", {
 			weekday: "short",
 			month: "short",
 			day: "numeric",
@@ -93,7 +93,7 @@ const DatePicker: React.FC<DatePickerProps> = ({
 					<Calendar className="w-5 h-5 text-muted group-hover:text-accent transition-colors" />
 					<div className="text-left">
 						<div className="text-sm font-medium text-default">
-							{formatDisplayDate(startDate)} – {endDate ? formatDisplayDate(endDate) : "∞ Never"}
+							{formatDisplayDate(startDate)} – {endDate ? formatDisplayDate(endDate) : "∞ 从不"}
 						</div>
 					</div>
 				</div>
@@ -113,14 +113,14 @@ const DatePicker: React.FC<DatePickerProps> = ({
 								onClick={handleCancel}
 								className="px-3 py-2 text-muted font-medium hover:text-accent transition-all duration-200 hover:bg-hover rounded-s text-sm"
 							>
-								Cancel
+								取消
 							</button>
-							<h3 className="text-lg font-bold text-default">Select Duration</h3>
+							<h3 className="text-lg font-bold text-default">选择持续时间</h3>
 							<button
 								onClick={handleSave}
 								className="px-4 py-2 btn-accent font-medium rounded-s hover:btn-accent-hover transition-all duration-200 shadow-lg hover:shadow-xl text-sm"
 							>
-								Done
+								完成
 							</button>
 						</div>
 
@@ -129,7 +129,7 @@ const DatePicker: React.FC<DatePickerProps> = ({
 							{/* Start Date Picker */}
 							<div className="space-y-2 animate-in slide-in-from-left duration-300 delay-100">
 								<label className="block text-sm font-medium text-default">
-									🚀 Start Date
+									🚀 开始日期
 								</label>
 								<div className="relative group">
 									<input
@@ -154,7 +154,7 @@ const DatePicker: React.FC<DatePickerProps> = ({
 							<div className="space-y-3 animate-in slide-in-from-right duration-300 delay-200">
 								<div className="flex items-center justify-between">
 									<label className="text-sm font-medium text-default">
-										🎯 End Date
+										🎯 结束日期
 									</label>
 									<button
 										onClick={() => toggleEndDate(!hasEndDate)}
@@ -189,10 +189,10 @@ const DatePicker: React.FC<DatePickerProps> = ({
 									<div className="p-4 bg-secondary rounded-m border-2 border-dashed border-hover text-center transition-all hover:border-focus animate-in fade-in duration-300">
 										<div className="text-xl mb-1 text-muted">∞</div>
 										<div className="text-base font-semibold text-default mb-1">
-											Never
+											从不
 										</div>
 										<div className="text-xs text-faint">
-											This habit continues indefinitely
+											此习惯将无限期持续
 										</div>
 									</div>
 								)}
@@ -202,21 +202,21 @@ const DatePicker: React.FC<DatePickerProps> = ({
 							<div className="bg-active-hover rounded-m p-3 border-default shadow-inner animate-in slide-in-from-bottom duration-300 delay-300">
 								<div className="flex items-center gap-2 mb-2">
 									<div className="w-1.5 h-1.5 btn-accent rounded-full animate-pulse" />
-									<div className="text-xs font-bold text-accent">Preview</div>
+									<div className="text-xs font-bold text-accent">预览</div>
 								</div>
 								<div className="space-y-1 text-xs">
 									<div className="flex items-center gap-2 text-default">
-										<span className="font-medium">From:</span>
+										<span className="font-medium">从：</span>
 										<span className="px-2 py-1 bg-hover rounded-s font-medium">
 											{formatDisplayDate(tempStartDate)}
 										</span>
 									</div>
 									<div className="flex items-center gap-2 text-default">
-										<span className="font-medium">Until:</span>
+										<span className="font-medium">至：</span>
 										<span className="px-2 py-1 bg-hover rounded-s font-medium">
 											{hasEndDate && tempEndDate
 												? formatDisplayDate(tempEndDate)
-												: "∞ Never"}
+												: "∞ 从不"}
 										</span>
 									</div>
 								</div>

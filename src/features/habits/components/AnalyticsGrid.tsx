@@ -18,10 +18,10 @@ const AnalyticsGrid: React.FC<AnalyticsGridProps> = ({
 
 	const getMonthName = useCallback((monthIndex: number) => {
 		const months = [
-			"Jan", "Feb", "Mar", "Apr", "May", "Jun",
-			"Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
+			"1月", "2月", "3月", "4月", "5月", "6月",
+			"7月", "8月", "9月", "10月", "11月", "12月",
 		];
-		return months[monthIndex] || "Unknown";
+		return months[monthIndex] || "未知";
 	}, []);
 
 
@@ -150,8 +150,7 @@ const AnalyticsGrid: React.FC<AnalyticsGridProps> = ({
 								/>
 							</span>
 							<span className="text-muted">
-								{monthName} {year} - {completedDays} of {totalDays}{" "}
-								{totalDays === 1 ? "day" : "days"}
+								{year}年 {monthName} - {totalDays}天中的{completedDays}天
 							</span>
 						</div>
 					</div>
@@ -166,7 +165,7 @@ const AnalyticsGrid: React.FC<AnalyticsGridProps> = ({
 					<div className="bg-primary rounded-xl p-4 border-hover">
 						{/* Day labels */}
 						<div className="grid grid-cols-7 gap-1 mb-2">
-							{["S", "M", "T", "W", "T", "F", "S"].map((day, index) => (
+							{["日", "一", "二", "三", "四", "五", "六"].map((day, index) => (
 								<div
 									key={index}
 									className="text-xs text-muted font-medium text-center py-1"
@@ -208,15 +207,15 @@ const AnalyticsGrid: React.FC<AnalyticsGridProps> = ({
 											backgroundColor: day === 1 ? habit.color : undefined,
 											borderColor: day === -2 ? habit.color : undefined,
 										}}
-										title={`Day ${index + 1}: ${day === 1
-											? "Completed"
+										title={`第${index + 1}天: ${day === 1
+											? "已完成"
 											: day === 0
-												? "Not completed"
+												? "未完成"
 												: day === -1
-													? "Future date"
+													? "未来日期"
 													: day === -2
-														? "Not scheduled"
-														: "No data"
+														? "未计划"
+														: "无数据"
 											}`}
 									>
 										{dayNumber && <span className="text-xs">{dayNumber}</span>}
@@ -251,20 +250,20 @@ const AnalyticsGrid: React.FC<AnalyticsGridProps> = ({
 										{currentStreak}
 									</span>
 									<span className="text-[10px] text-muted font-medium">
-										days
+										天
 									</span>
 								</div>
 							</div>
 							<div className="w-px h-4 bg-hover"></div>
 							<span className="text-[10px] text-muted font-semibold uppercase tracking-wider">
-								Current
+								当前
 							</span>
 						</div>
 
 						{/* Tooltip */}
 						<div className="absolute right-0 top-full mt-1 opacity-0 group-hover/streak:opacity-100 transition-opacity duration-200 pointer-events-none">
 							<div className="bg-secondary text-default text-xs px-2 py-1 rounded-s whitespace-nowrap border-default shadow-sm">
-								Active streak
+								连续记录
 							</div>
 						</div>
 					</div>
@@ -281,20 +280,20 @@ const AnalyticsGrid: React.FC<AnalyticsGridProps> = ({
 										{longestStreak}
 									</span>
 									<span className="text-[10px] text-amber-600 font-medium">
-										days
+										天
 									</span>
 								</div>
 							</div>
 							<div className="w-px h-4 bg-amber-300"></div>
 							<span className="text-[10px] text-amber-700 font-semibold uppercase tracking-wider">
-								Best
+								最佳
 							</span>
 						</div>
 
 						{/* Tooltip */}
 						<div className="absolute right-0 top-full mt-1 opacity-0 group-hover/max:opacity-100 transition-opacity duration-200 pointer-events-none">
 							<div className="bg-secondary text-default text-xs px-2 py-1 rounded-s whitespace-nowrap border-default shadow-sm">
-								Personal record
+								个人记录
 							</div>
 						</div>
 					</div>
@@ -402,8 +401,7 @@ const AnalyticsGrid: React.FC<AnalyticsGridProps> = ({
 								</span>
 							</span>
 							<span className="text-muted">
-								{monthName} {year} - {completedDays} of {totalDays}{" "}
-								{totalDays === 1 ? "day" : "days"}
+								{year}年 {monthName} - {totalDays}天中的{completedDays}天
 							</span>
 						</div>
 
@@ -431,20 +429,20 @@ const AnalyticsGrid: React.FC<AnalyticsGridProps> = ({
 												{currentStreak}
 											</span>
 											<span className="text-[10px] text-muted font-medium">
-												days
+												天
 											</span>
 										</div>
 									</div>
 									<div className="w-px h-4 bg-hover"></div>
 									<span className="text-[10px] text-muted font-semibold uppercase tracking-wider">
-										Current
+										当前
 									</span>
 								</div>
 
 								{/* Tooltip */}
 								<div className="absolute left-0 top-full mt-1 opacity-0 group-hover/streak:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
 									<div className="bg-secondary text-default text-xs px-2 py-1 rounded-s whitespace-nowrap border-default shadow-sm">
-										Active streak
+										连续记录
 									</div>
 								</div>
 							</div>
@@ -461,20 +459,20 @@ const AnalyticsGrid: React.FC<AnalyticsGridProps> = ({
 												{longestStreak}
 											</span>
 											<span className="text-[10px] text-amber-600 font-medium">
-												days
+												天
 											</span>
 										</div>
 									</div>
 									<div className="w-px h-4 bg-amber-300"></div>
 									<span className="text-[10px] text-amber-700 font-semibold uppercase tracking-wider">
-										Best
+										最佳
 									</span>
 								</div>
 
 								{/* Tooltip */}
 								<div className="absolute left-0 top-full mt-1 opacity-0 group-hover/max:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
 									<div className="bg-secondary text-default text-xs px-2 py-1 rounded-s whitespace-nowrap border-default shadow-sm">
-										Personal record
+										个人记录
 									</div>
 								</div>
 							</div>
@@ -508,15 +506,15 @@ const AnalyticsGrid: React.FC<AnalyticsGridProps> = ({
 										backgroundColor: day === 1 ? habit.color : undefined,
 										borderColor: day === -2 ? habit.color : undefined,
 									}}
-									title={`Day ${dayIndex + 1}: ${day === 1
-										? "Completed"
+									title={`第${dayIndex + 1}天: ${day === 1
+										? "已完成"
 										: day === 0
-											? "Not completed"
+											? "未完成"
 											: day === -1
-												? "Future date"
+												? "未来日期"
 												: day === -2
-													? "Not scheduled"
-													: "No data"
+													? "未计划"
+													: "无数据"
 										}`}
 								/>
 							))}
@@ -526,7 +524,7 @@ const AnalyticsGrid: React.FC<AnalyticsGridProps> = ({
 						<div className="flex justify-center items-center text-xs text-muted font-medium mt-4 gap-4 lg:gap-6 px-4 py-2 uppercase flex-wrap">
 							<div className="flex items-center gap-2">
 								<div className="w-4 h-4 bg-active-hover rounded-s"></div>
-								<span>Incomplete</span>
+								<span>未完成</span>
 							</div>
 
 							<div className="flex items-center gap-2">
@@ -534,7 +532,7 @@ const AnalyticsGrid: React.FC<AnalyticsGridProps> = ({
 									className="w-4 h-4 rounded-s"
 									style={{ backgroundColor: habit.color }}
 								></div>
-								<span>Completed</span>
+								<span>已完成</span>
 							</div>
 
 							<div className="flex items-center gap-2">
@@ -542,12 +540,12 @@ const AnalyticsGrid: React.FC<AnalyticsGridProps> = ({
 									className="w-4 h-4 rounded-s bg-hover border border-dashed"
 									style={{ borderColor: habit.color }}
 								></div>
-								<span>Skipped</span>
+								<span>已跳过</span>
 							</div>
 
 							<div className="flex items-center gap-2">
 								<div className="w-4 h-4 rounded-s bg-hover border border-dashed border-hover"></div>
-								<span>Skipped</span>
+								<span>已跳过</span>
 							</div>
 						</div>
 					</div>

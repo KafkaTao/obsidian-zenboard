@@ -33,7 +33,7 @@ const Calendar: React.FC<CalendarProps> = ({
 			{/* Header section */}
 			<div className="flex items-center justify-between mb-2">
 				<h2 className="text-xl font-semibold text-default tracking-tight">
-					Calendar
+					日历
 				</h2>
 
 				{/* Navigation controls - iOS style */}
@@ -42,19 +42,19 @@ const Calendar: React.FC<CalendarProps> = ({
 						onClick={scrollToStart}
 						className="text-sm px-3 py-1.5 rounded-m bg-secondary text-muted hover:bg-hover transition-colors duration-200"
 					>
-						Start
+						开始
 					</button>
 					<button
 						onClick={scrollToToday}
 						className="text-sm px-3 py-1.5 rounded-m bg-blue-500 text-white hover:bg-blue-600 transition-colors duration-200 font-medium"
 					>
-						Today
+						今天
 					</button>
 					<button
 						onClick={scrollToEnd}
 						className="text-sm px-3 py-1.5 rounded-m bg-secondary text-muted hover:bg-hover transition-colors duration-200"
 					>
-						End
+						结束
 					</button>
 					<button
 						onClick={() => onScroll("left")}
@@ -102,7 +102,7 @@ const Calendar: React.FC<CalendarProps> = ({
 						const isComplete = progress === 100;
 
 						const dayName = day.date
-							.toLocaleDateString("en-US", { weekday: "short" })
+							.toLocaleDateString("zh-CN", { weekday: "short" })
 							.toUpperCase();
 
 						// Check if day is in the future

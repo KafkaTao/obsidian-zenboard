@@ -48,7 +48,7 @@ const HabitView: React.FC = () => {
 		scrollToEnd,
 	} = useCalendar();
 
-	if (loading) return <div className="text-default">Loading...</div>;
+	if (loading) return <div className="text-default">加载中...</div>;
 
 	return (
 		<div className="min-h-screen transition-all duration-500 ease-in-out bg-primary">
@@ -73,7 +73,7 @@ const HabitView: React.FC = () => {
 								<div>
 									<div className="flex items-center gap-3 mb-1">
 										<h1 className="text-2xl font-semibold tracking-tight transition-colors duration-500 ease-in-out text-default uppercase">
-											ZenBoard
+											禅定面板
 										</h1>
 										{/* App Icon Badge */}
 										<div className="w-6 h-6 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center transition-all duration-300 ease-in-out">
@@ -82,10 +82,10 @@ const HabitView: React.FC = () => {
 									</div>
 									<p className="text-sm transition-colors duration-500 ease-in-out text-muted">
 										{currentView === "analytics"
-											? "Track your progress"
+											? "跟踪您的进度"
 											: currentView === "all-habits"
-												? "Manage all your habits"
-												: `${selectedDate.toLocaleDateString("en-US", {
+												? "管理您的所有习惯"
+												: `${selectedDate.toLocaleDateString("zh-CN", {
 													weekday: "long",
 													month: "long",
 													day: "numeric",
@@ -103,7 +103,7 @@ const HabitView: React.FC = () => {
 										<Flame className="w-4 h-4 text-white transition-all duration-300" />
 										<div className="text-white">
 											<div className="text-xs font-medium opacity-90 transition-opacity duration-300">
-												Streak
+												连续记录
 											</div>
 											<div className="text-lg font-semibold leading-tight transition-all duration-300">
 												{dashboardData?.maxStreak ?? "—"}
@@ -156,7 +156,7 @@ const HabitView: React.FC = () => {
 									className="inline-flex items-center gap-2 px-6 py-3  font-medium transition-all duration-300 ease-in-out btn-accent shadow-sm hover:shadow-md active:scale-95"
 								>
 									<Plus className="w-4 h-4 transition-all duration-300" />
-									Add New Habit
+									添加新习惯
 								</button>
 
 								<button
@@ -164,7 +164,7 @@ const HabitView: React.FC = () => {
 									className="inline-flex items-center gap-2 px-6 py-3  font-medium transition-all duration-300 ease-in-out btn-base hover:bg-active-hover text-default shadow-sm hover:shadow-md active:scale-95"
 								>
 									<Grid className="w-4 h-4 transition-all duration-300" />
-									View All
+									查看全部
 								</button>
 							</div>
 						</div>
@@ -181,7 +181,7 @@ const HabitView: React.FC = () => {
 							<div className="space-y-4">
 								<div className="flex items-center justify-between px-1">
 									<h2 className="text-lg font-semibold transition-colors duration-500 ease-in-out text-default">
-										Active
+										进行中
 									</h2>
 									<div className="bg-blue-50 text-blue-700 px-2.5 py-1 rounded-full text-xs font-medium transition-all duration-500 ease-in-out">
 										{pendingHabits.length}
@@ -212,7 +212,7 @@ const HabitView: React.FC = () => {
 							<div className="space-y-4">
 								<div className="flex items-center justify-between px-1">
 									<h2 className="text-lg font-semibold transition-colors duration-500 ease-in-out text-default">
-										Completed
+										已完成
 									</h2>
 									<div className="bg-green-50 text-green-700 px-2.5 py-1 rounded-full text-xs font-medium transition-all duration-500 ease-in-out">
 										{completedHabits.length}
@@ -245,14 +245,14 @@ const HabitView: React.FC = () => {
 						<div className="flex items-center justify-between">
 							<div>
 								<h2 className="text-xl font-semibold transition-colors duration-500 ease-in-out text-default">
-									All Habits
+									所有习惯
 								</h2>
 								<p className="text-sm mt-1 transition-colors duration-500 ease-in-out text-muted">
-									Manage and view details of all your habits
+									管理并查看所有习惯的详细信息
 								</p>
 							</div>
 							<div className="bg-purple-50 text-blue-600 px-3 py-1.5 rounded-full text-sm font-medium transition-all duration-500 ease-in-out">
-								{allHabits?.length || 0} habits
+								{allHabits?.length || 0} 个习惯
 							</div>
 						</div>
 
@@ -287,7 +287,7 @@ const HabitView: React.FC = () => {
 									: "text-muted hover:text-default"
 									}`}
 							>
-								Monthly
+								月度
 							</button>
 							<button
 								onClick={() => setAnalyticsTab("overall")}
@@ -296,7 +296,7 @@ const HabitView: React.FC = () => {
 									: "text-muted hover:text-default"
 									}`}
 							>
-								Overall
+								总览
 							</button>
 						</div>
 

@@ -18,7 +18,7 @@ const Modal: React.FC<ModalProps> = ({ title, description, onClose }) => (
           onClick={onClose}
           className="px-4 py-2 text-sm font-medium bg-blue-500 text-white rounded-xl hover:bg-blue-600 transition"
         >
-          Okay
+          好的
         </button>
       </div>
     </div>

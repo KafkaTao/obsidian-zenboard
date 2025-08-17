@@ -16,7 +16,7 @@ const AnalyticsTabs: React.FC<AnalyticsTabsProps> = ({ activeTab, onTabChange })
             : 'bg-gray-800 text-gray-400 hover:bg-gray-700'
         }`}
       >
-        Monthly View
+        月度视图
       </button>
       <button
         onClick={() => onTabChange('overall')}
@@ -26,7 +26,7 @@ const AnalyticsTabs: React.FC<AnalyticsTabsProps> = ({ activeTab, onTabChange })
             : 'bg-gray-800 text-gray-400 hover:bg-gray-700'
         }`}
       >
-        Overall Progress
+        总体进度
       </button>
     </div>
   );

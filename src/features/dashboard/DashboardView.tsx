@@ -34,13 +34,13 @@ export default function DashboardView({ enabledFeatures }: Props) {
 	const tabs = [
 		{
 			id: "habits",
-			label: "Habit Tracker",
+			label: "习惯跟踪",
 			enabled: enabledFeatures.habitTracker,
 			icon: CheckCircle,
 		},
 		{
 			id: "expenses",
-			label: "Expense Manager",
+			label: "开支管理",
 			enabled: enabledFeatures.expenseManager,
 			icon: Wallet,
 		},
@@ -53,7 +53,7 @@ export default function DashboardView({ enabledFeatures }: Props) {
 			case "expenses":
 				return <ExpensesView />;
 			default:
-				return <div className="text-center py-8 text-muted">No content available.</div>;
+				return <div className="text-center py-8 text-muted">无可用内容。</div>;
 		}
 	};
 
@@ -64,13 +64,13 @@ export default function DashboardView({ enabledFeatures }: Props) {
 				<div className="max-w-7xl mx-auto flex items-center justify-between">
 					<div className="flex items-center space-x-8">
 						<h1 className="text-2xl font-bold text-default tracking-tight">
-							Zenboard
+							禅定面板
 						</h1>
 					</div>
 					{/* <div className="flex items-center space-x-3"> */}
 					{/* 	<button className="flex items-center px-4 py-2 text-sm font-medium text-muted hover:text-default hover:bg-hover transition-colors duration-200"> */}
 					{/* 		<Settings className="w-4 h-4 mr-2" /> */}
-					{/* 		Settings */}
+					{/* 		设置 */}
 					{/* 	</button> */}
 					{/* </div> */}
 				</div>

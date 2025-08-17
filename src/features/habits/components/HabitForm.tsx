@@ -75,13 +75,13 @@ const HabitForm: React.FC<HabitFormModalProps> = ({ isOpen, onClose }) => {
 	// ==============================================================================================
 
 	const days = [
-		{ key: "MO", label: "Mon", full: "Monday" },
-		{ key: "TU", label: "Tue", full: "Tuesday" },
-		{ key: "WE", label: "Wed", full: "Wednesday" },
-		{ key: "TH", label: "Thu", full: "Thursday" },
-		{ key: "FR", label: "Fri", full: "Friday" },
-		{ key: "SA", label: "Sat", full: "Saturday" },
-		{ key: "SU", label: "Sun", full: "Sunday" },
+		{ key: "MO", label: "周一", full: "星期一" },
+		{ key: "TU", label: "周二", full: "星期二" },
+		{ key: "WE", label: "周三", full: "星期三" },
+		{ key: "TH", label: "周四", full: "星期四" },
+		{ key: "FR", label: "周五", full: "星期五" },
+		{ key: "SA", label: "周六", full: "星期六" },
+		{ key: "SU", label: "周日", full: "星期日" },
 	];
 
 	// Using Obsidian theme-compatible colors
@@ -100,17 +100,17 @@ const HabitForm: React.FC<HabitFormModalProps> = ({ isOpen, onClose }) => {
 		"#F1FAEE", // Accent text (light for contrast)
 	];
 	const repeatOptions = [
-		{ value: "weekdays", label: "Selected week days" },
-		{ value: "daily", label: "Every day" },
-		{ value: "every_few_days", label: "Every few days" },
-		{ value: "weekly", label: "Weekly" },
-		{ value: "monthly", label: "Monthly" },
+		{ value: "weekdays", label: "选定的周天" },
+		{ value: "daily", label: "每天" },
+		{ value: "every_few_days", label: "每隔几天" },
+		{ value: "weekly", label: "每周" },
+		{ value: "monthly", label: "每月" },
 	];
 
 	const trackingTypes = [
-		{ type: "task" as const, icon: CheckCircle, label: "Task" },
-		{ type: "amount" as const, icon: BarChart3, label: "Amount" },
-		{ type: "time" as const, icon: Clock, label: "Time" },
+		{ type: "task" as const, icon: CheckCircle, label: "任务" },
+		{ type: "amount" as const, icon: BarChart3, label: "数量" },
+		{ type: "time" as const, icon: Clock, label: "时间" },
 	];
 
 	// ==============================================================================================
@@ -139,7 +139,7 @@ const HabitForm: React.FC<HabitFormModalProps> = ({ isOpen, onClose }) => {
 			setSelectedDays(["MO", "TU", "WE", "TH", "FR", "SA", "SU"]);
 		} else if (value === "weekly") {
 			setSelectedDays([
-				new Date().toLocaleDateString("en", { weekday: "short" }).charAt(0),
+				new Date().toLocaleDateString("zh-CN", { weekday: "short" }).charAt(0),
 			]);
 		} else if (value === "every_few_days") {
 			setSelectedDays([]); // ✅ clear selected days
@@ -272,11 +272,11 @@ const HabitForm: React.FC<HabitFormModalProps> = ({ isOpen, onClose }) => {
 			onClose();
 		} catch (error) {
 			setModal({
-				title: "Error",
-				description: "Something went wrong while saving the habit.",
+				title: "错误",
+				description: "保存习惯时出错。",
 				isOpen: true,
 			});
-			console.error("Error saving habit:", error);
+			console.error("保存习惯时出错:", error);
 		}
 	};
 
@@ -306,7 +306,7 @@ const HabitForm: React.FC<HabitFormModalProps> = ({ isOpen, onClose }) => {
 
 				<div className="sticky top-0 z-10 flex items-center justify-between p-6 bg-primary border-default ">
 					<h1 className="text-default text-xl font-semibold">
-						New Habit
+						新习惯
 					</h1>
 					<button
 						onClick={onClose}
@@ -330,21 +330,21 @@ const HabitForm: React.FC<HabitFormModalProps> = ({ isOpen, onClose }) => {
 							{/* Habit Name Input */}
 							<div className="space-y-2">
 								<label className="text-muted text-sm font-medium">
-									Name
+									名称
 								</label>
 								<input
 									type="text"
 									value={habitName}
 									onChange={(e) => setHabitName(e.target.value)}
 									className="w-full h-10 bg-secondary border-default rounded-m px-4 py-3 text-default placeholder-muted focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all duration-200"
-									placeholder="Enter habit name"
+									placeholder="输入习惯名称"
 								/>
 							</div>
 
 							{/* Tracking Type Selection */}
 							<div className="space-y-4">
 								<label className="text-muted text-sm font-medium">
-									Track
+									跟踪
 								</label>
 
 								<div className="grid grid-cols-3 gap-2">
@@ -390,7 +390,7 @@ const HabitForm: React.FC<HabitFormModalProps> = ({ isOpen, onClose }) => {
 													min="1"
 												/>
 												<span className="text-muted text-lg font-medium">
-													min
+													分钟
 												</span>
 											</div>
 										</div>
@@ -433,7 +433,7 @@ const HabitForm: React.FC<HabitFormModalProps> = ({ isOpen, onClose }) => {
 													min="1"
 												/>
 												<span className="text-muted text-lg font-medium">
-													times
+													次
 												</span>
 											</div>
 										</div>
@@ -453,7 +453,7 @@ const HabitForm: React.FC<HabitFormModalProps> = ({ isOpen, onClose }) => {
 							{/* Color & Icon Selection */}
 							<div className="space-y-4">
 								<label className="text-muted text-sm font-medium">
-									Color & Icon
+									颜色和图标
 								</label>
 
 								{/* Icon Selection */}
@@ -526,7 +526,7 @@ const HabitForm: React.FC<HabitFormModalProps> = ({ isOpen, onClose }) => {
 							{/* Repeatability Settings */}
 							<div className="space-y-4">
 								<label className="text-muted text-sm font-medium">
-									Repeatability
+									重复性
 								</label>
 
 								<div className="relative">
@@ -569,7 +569,7 @@ const HabitForm: React.FC<HabitFormModalProps> = ({ isOpen, onClose }) => {
 								{repeatability === "every_few_days" && (
 									<div className="flex items-center justify-center py-3 bg-secondary border-default rounded-m">
 										<span className="text-default mr-2">
-											Every
+											每
 										</span>
 										<input
 											type="number"
@@ -582,7 +582,7 @@ const HabitForm: React.FC<HabitFormModalProps> = ({ isOpen, onClose }) => {
 											max="30"
 										/>
 										<span className="text-default ml-2">
-											days
+											天
 										</span>
 									</div>
 								)}
@@ -614,11 +614,11 @@ const HabitForm: React.FC<HabitFormModalProps> = ({ isOpen, onClose }) => {
 							{/* Reminders Section */}
 							<div className="space-y-2">
 								<label className="text-muted text-sm font-medium">
-									Reminders
+									提醒
 								</label>
 								<button className="w-full h-10 flex items-center justify-center bg-secondary  px-4 py-3 text-muted hover:bg-hover transition-all duration-200">
 									<Bell size={20} className="mr-2" />
-									This feature is coming soon
+									此功能即将推出
 								</button>
 							</div>
 
@@ -626,7 +626,7 @@ const HabitForm: React.FC<HabitFormModalProps> = ({ isOpen, onClose }) => {
 							<div className="space-y-2">
 
 								<label className="text-muted text-sm font-medium">
-									Select date Range
+									选择日期范围
 								</label>
 								<DatePicker
 									startDate={startDate}
@@ -647,14 +647,14 @@ const HabitForm: React.FC<HabitFormModalProps> = ({ isOpen, onClose }) => {
 							onClick={onClose}
 							className="px-6 py-3 bg-secondary text-muted hover:bg-hover font-medium rounded-m transition-all duration-300 transform hover:scale-105"
 						>
-							Cancel
+							取消
 						</button>
 						<button
 							onClick={handleSave}
 							disabled={!habitName.trim()}
 							className="px-8 py-3 btn-accent font-semibold rounded-m transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed"
 						>
-							Save
+							保存
 						</button>
 					</div>
 				</div>
@@ -672,7 +672,7 @@ const HabitForm: React.FC<HabitFormModalProps> = ({ isOpen, onClose }) => {
 					/>
 					<div className="relative bg-primary rounded-l shadow-2xl p-6 max-w-sm w-full">
 						<h3 className="text-default text-lg font-semibold mb-4">
-							Choose Color
+							选择颜色
 						</h3>
 						<div className="grid grid-cols-4 gap-3 mb-4">
 							{defaultColors.map((color, index) => (
@@ -689,7 +689,7 @@ const HabitForm: React.FC<HabitFormModalProps> = ({ isOpen, onClose }) => {
 						</div>
 						<div className="space-y-3">
 							<label className="text-muted text-sm font-medium">
-								Custom Color
+								自定义颜色
 							</label>
 							<div className="flex space-x-3">
 								<input
@@ -702,7 +702,7 @@ const HabitForm: React.FC<HabitFormModalProps> = ({ isOpen, onClose }) => {
 									onClick={handleCustomColorSelect}
 									className="px-4 py-2 btn-accent rounded-m transition-colors"
 								>
-									Select
+									选择
 								</button>
 							</div>
 						</div>
@@ -722,7 +722,7 @@ const HabitForm: React.FC<HabitFormModalProps> = ({ isOpen, onClose }) => {
 					/>
 					<div className="relative bg-primary rounded-l shadow-2xl p-6 max-w-lg w-full max-h-96 overflow-y-auto">
 						<h3 className="text-default text-lg font-semibold mb-4">
-							Choose Icon
+							选择图标
 						</h3>
 						<div className="grid grid-cols-6 gap-3">
 							{habitIcons.map(({ name, icon: Icon }) => (
